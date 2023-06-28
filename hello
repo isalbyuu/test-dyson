@@ -1,0 +1,13 @@
+from dys import _chain, SCRIPT_ADDRESS
+
+
+def say_hello(my_name: str):
+    data = "hello " + my_name
+    print(data) # to help debug
+    return _chain(
+        "dyson/sendMsgCreateStorage",
+        creator=SCRIPT_ADDRESS,
+        index=SCRIPT_ADDRESS + "/my_greeting",
+        data=data,
+        force=True,
+    )
